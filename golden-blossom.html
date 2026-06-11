@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="Lsp22CipwfKRq9XvAL897qzyFbfqT8LiqibpzDja">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>
+
+    <!-- Primary Meta Tags -->
+    <title>Walimatul 'Urs : Rahmat & Dian</title>
+    <meta name="title" content="Kadio : Buat Website Undangan Online dalam 10 Menit">
+    <meta name="description"
+        content="Kadio adalah  platform untuk membuat website undangan online dengan mudah dan cepat. Tersedia berbagai design premium dan menarik.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://kadio.id/demo/golden-blossom">
+    <meta property="og:title" content="Kadio : Buat Website Undangan Online dalam 10 Menit">
+    <meta property="og:description"
+        content="Kadio adalah  platform untuk membuat website undangan online dengan mudah dan cepat. Tersedia berbagai design premium dan menarik.">
+    <meta property="og:image" content="https://cdn.kadio.id/upload/products1751297050_dsg-06-banner-preview.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://kadio.id/demo/golden-blossom">
+    <meta property="twitter:title" content="Kadio : Buat Website Undangan Online dalam 10 Menit">
+    <meta property="twitter:description"
+        content="Kadio adalah  platform untuk membuat website undangan online dengan mudah dan cepat. Tersedia berbagai design premium dan menarik.">
+    <meta property="twitter:image" content="https://cdn.kadio.id/upload/products1751297050_dsg-06-banner-preview.jpg">
+
+    <link rel="canonical" href="https://kadio.id/demo/golden-blossom">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Baskervville:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://kadio.id/css/qrcode.css?v=148">
+    <link rel="stylesheet" href="kdo49.css">
+    <link rel="stylesheet" href="https://kadio.id/css/lightbox.min.css">
+    <meta name="format-detection" content="telephone=no">
+
+
+    <!-- Facebook Pixel Code -->
+
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Global site tag (gtag.js) - Google Ads: 412787187 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-412787187"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-412787187');
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHW2TZHP03"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-XHW2TZHP03');
+    </script>
+
+
+    <style>
+        @font-face {
+            font-family: 'Bulgatti';
+            src: url('bulgatti-webfont.woff2') format('woff2'),
+                 url('bulgatti-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* 1. Mengganti font ke Bulgatti untuk semua judul & nama */
+        h1, h2, .title, .nick-name, .full-name, .cover .title, section .title, h2.title {
+            font-family: 'Bulgatti', sans-serif !important;
+            text-transform: none !important;
+        }
+
+        /* 2. KODE KHUSUS SPASI HANYA UNTUK NAMA MEMPELAI */
+        .nick-name, .full-name {
+            word-spacing: 9px !important; 
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="qr-modal">
+        <div class="qr-modal-body">
+            <p>QR Tamu Undangan</p>
+            <div class="qr-container">
+                <div id="qrcode"></div>
+                <img class="qr-logo" src="https://kadio.id/images/logo/ico.svg" alt="Kadio Logo">
+            </div>
+            <button type="button" class="close" id="close_qr_modal">Tutup</button>
+        </div>
+    </div>
+
+    <button class="show-qr animate__animated animate__fadeInUpBig animate__slow animate__delay-1s" type="button"
+        id="open_qr_modal">
+        <img src="https://cdn.kadio.id/cdn/1747808279_icons8-qr-code-48.png" alt="" width="100%" height="100%">
+    </button>
+    <input type="hidden" id="guest_code" value="demo">
+    <div class="modal rsvp-modal" id="rvsp_modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="header">
+                <h3 class="text-center2 title-gift">RSVP</h3>
+                <div class="close-modal-2">x</div>
+            </div>
+            <div class="body">
+                <section class="modal-rsvp">
+                    <form id="form_submit_rsvp">
+                        <div id="list_event_rsvp">
+                            <p style="margin: 0 0 10px 0;">Silahkan pilih acara yang akan dihadiri :</p>
+                            <div>
+                                <ul class="rsvp-list-event">
+                                    <li class="select-event" data-acara="8496">
+                                        <div class="item">
+                                            <div class="value bank-name mb-1">
+                                                Akad Nikah & Walimah
+                                            </div>
+                                            <label>Sabtu, 15 Agustus 2026 <br>
+                                                08:30 - Selesai WIB
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li class="select-event" data-acara="8497">
+                                        <div class="item">
+                                            <div class="value bank-name mb-1">
+                                                Resepsi
+                                            </div>
+                                            <label>Jumat, 31 Oktober 2025 <br>
+                                                12:00 - Selesai WIB
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="jumlah-hadir">
+                                <p style="margin-bottom: 10px;display: block;">Jumlah yang akan hadir :</p>
+                                <div>
+                                    <ul class="list-number">
+                                        <li>
+                                            <button class="btn-set-guest-count " type="button"
+                                                data-guest-count="1">1</button>
+                                        </li>
+                                        <li>
+                                            <button class="btn-set-guest-count active" type="button"
+                                                data-guest-count="2">2</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="invitation_code" name="invitation_code" value="zmwcc4ql">
+                        <input type="hidden" id="guest_id" name="guest_id" value="">
+                        <input type="hidden" name="acara" id="event_id">
+                        <input type="hidden" name="jumlah_hadir" id="guest_count" value="2">
+                    </form>
+                </section>
+            </div>
+            <div class="footer-rsvp-modal">
+                <button id="btn_rsvp_confirmation" class="btn-rsvp-confirmation">
+                    <span class="text">Konfirmasi</span>
+                    <span class="loader">
+                        mohon tunggu ...
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="send_gift_modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="header">
+                <div class="close-modal">x</div>
+            </div>
+            <div class="body">
+                <section class="modal-send-gift">
+                    <div id="list_account_gift">
+                        <h3 class="text-center2 pb-2 title-gift pl-3">Kado Digital</h3>
+                        <div>
+                            <ul>
+                                <li class="mb-3">
+                                    <div class="item">
+                                        <label>Bank / Nama Rekening</label>
+                                        <div class="value bank-name mb-1">
+                                            Bank BNI / Aprilika Fitria Adhadianty
+                                        </div>
+                                        <label>Nomor Rekening</label>
+                                        <div class="value account-number">
+                                            <div type="text">2120298734</div>
+                                            <a href="javascript:void(0)" data-copy="1944442202"
+                                                class="copy-to-clipboard">
+                                                <img src="https://cdn.kadio.id/cdn/1744182184_ico-copy.png" alt=""
+                                                    width="22">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <h3>Kado Produk</h3>
+                        <div>
+                            <div class="row p-3">
+                                <ul class="list-gift-product">
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688711049_piring-couple.jpeg" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Souvenir mangkuk set porselen</div>
+                                            <div class="product-price">Rp31.500 - Rp120.000</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/1q81TEXSfg">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688711262_Hampers Peralatan Makan Kayu Jati.jpeg"
+                                                alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Hampers Peralatan Makan Kayu Jati</div>
+                                            <div class="product-price">Rp148.000 - Rp235.000</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/9UXSbj7NLP">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688711435_Piyama Couple.jpeg" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Piyama Couple</div>
+                                            <div class="product-price">Rp150.000 - Rp194.000</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/99ucDC2ZKD">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688711907_cookware set.jpeg" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Cookware Set</div>
+                                            <div class="product-price">Rp179.900</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/3fZfh2rTqc">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688711608_Bed Cover.jpeg" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Bed Cover</div>
+                                            <div class="product-price">Rp219.000 - Rp257.000</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/5fKk43w1qo">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688711731_Diffuser Aromatherapy.jpeg"
+                                                alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Diffuser Aromatherapy</div>
+                                            <div class="product-price">Rp42.500 - Rp50.200</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/2L4I6GMywC">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688711996_air fryer.jpeg" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Air Fryer</div>
+                                            <div class="product-price">Rp289.900</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/6zq7fKsLlS">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688712099_oven listrik.jpeg" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Oven Listrik</div>
+                                            <div class="product-price">Rp282.500</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/7UmOGJxyRp">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688712305_couple mug.jpeg" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Couple Mug</div>
+                                            <div class="product-price">Rp80.000 - Rp88.000</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/AUPzq2Gu5A">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688712402_knife set.jpeg" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Knife Set</div>
+                                            <div class="product-price">Rp50.000</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/8A253vloHY">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688712507_coffee maker.jpeg" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Coffee Maker</div>
+                                            <div class="product-price">Rp189.000</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/20RRij5zAu">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688712659_blender.jpeg" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Blender 3 in 1</div>
+                                            <div class="product-price">Rp179.900 - Rp209.900</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/8KLVGa70eT">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688712765_vacuum cleaner.jpeg" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Vacuum Cleaner 5 in 1</div>
+                                            <div class="product-price">Rp214.999 - Rp289.999</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/fw48hHkHD">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688712840_baju batik couple.jpeg"
+                                                alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Baju Batik Couple</div>
+                                            <div class="product-price">Rp79.000 - Rp85.000</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/9KE2UcEk6f">Beli</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="image">
+                                            <img src="https://cdn.kadio.id/cdn/1688714122_set mug towel.jpeg" alt="">
+                                        </div>
+                                        <div class="info">
+                                            <div class="product-title">Gift Set Mug + Towel</div>
+                                            <div class="product-price">Rp129.900 - Rp214.900</div>
+                                        </div>
+                                        <div class="product-action">
+                                            <a target="_blank" class="url-product mr-1"
+                                                href="https://shope.ee/6zq7d0SvL7">Beli</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="confirmation_form_gift" class="hide">
+                        <div class="d-flex pl-5 choose-gift">
+                            <div class="form-group d-flex align-center">
+                                <input value="digital" name="gift_type" style="width: 20px" type="radio" id="rb_digital"
+                                    checked><label class="ml-1" for="rb_digital">Kado Digital</label>
+                            </div>
+                            <div class="form-group d-flex align-center">
+                                <input value="product" name="gift_type" style="width: 20px" type="radio"
+                                    id="rb_product"><label class="ml-1" for="rb_product">Kado Produk</label>
+                            </div>
+                        </div>
+                        <div class="row pt-3 pl-5 pr-5 pb-2" id="digital_form">
+                            <div class="col-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-1">Nama Pengirim</label>
+                                    <input type="text" name="sender_name" id="sender_name" value="Romeo &amp; Juliet">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="mb-1">Dikirim ke Rekening</label>
+                                    <select name="gift_id" id="gift_id">
+                                        <option value="4477">Bank BCA-2120298734</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="mb-1">Jumlah Transfer</label>
+                                    <input type="number" name="total" id="total">
+                                </div>
+                                <div class="form-group mt-5 text-center d-flex">
+                                    <a id="btn_cancel_confirm" href="javascript:void(0)"
+                                        class="btn-outline-primary mr-2">Batal</a>
+                                    <a id="btn_submit_confirm" href="javascript:void(0)" class="btn-primary">
+                                        Kirim
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pt-3 pl-5 pr-5 pb-2 hide" id="product_form">
+                            <div class="col-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-1">Nama Pengirim</label>
+                                    <input type="text" name="sender_name_product" id="sender_name_product"
+                                        value="Romeo &amp; Juliet">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="mb-1">Produk yang dibeli</label>
+                                    <select name="gift_product_id" id="gift_product_id">
+                                        <option value="1">Souvenir mangkuk set porselen</option>
+                                        <option value="2">Hampers Peralatan Makan Kayu Jati</option>
+                                        <option value="3">Piyama Couple</option>
+                                        <option value="5">Cookware Set</option>
+                                        <option value="6">Bed Cover</option>
+                                        <option value="7">Diffuser Aromatherapy</option>
+                                        <option value="8">Air Fryer</option>
+                                        <option value="9">Oven Listrik</option>
+                                        <option value="10">Couple Mug</option>
+                                        <option value="11">Knife Set</option>
+                                        <option value="12">Coffee Maker</option>
+                                        <option value="13">Blender 3 in 1</option>
+                                        <option value="14">Vacuum Cleaner 5 in 1</option>
+                                        <option value="15">Baju Batik Couple</option>
+                                        <option value="16">Gift Set Mug + Towel</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="mb-1">Nomor Resi</label>
+                                    <input type="text" name="resi_number" id="resi_number">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="mb-1">Catatan Tambahan</label>
+                                    <input placeholder="cth : Saya kirim melalui JNE" type="text" name="notes"
+                                        id="gift_product_notes">
+                                </div>
+                                <div class="form-group mt-5 text-center d-flex">
+                                    <a id="btn_cancel_confirm" href="javascript:void(0)"
+                                        class="btn-outline-primary mr-2">Batal</a>
+                                    <a id="btn_submit_confirm" href="javascript:void(0)" class="btn-primary">
+                                        Kirim
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="footer-send-gift">
+                <a href="javascript:void(0)" class="btn-gift-confirmation">Konfirmasi</a>
+            </div>
+        </div>
+    </div>
+    <div class="bg"></div>
+    <div class="container remove-this" id="cover">
+        <section class="cover">
+            <div class="info">
+                <div class="sub-title animate__animated animate__fadeInDownBig animate__slow">Walimatul 'Urs</div>
+                <div class="title-sec animate__animated animate__fadeInDownBig animate__slow">
+                    <h1 class="title">Rahmat <br> & Dian</h1>
+                </div>
+                <div class="guest">
+                    <div class="label animate__animated animate__fadeInUpBig animate__slow">
+                        Kepada Yth. Bapak/Ibu/Sdr/i
+                    </div>
+                    <div class="name animate__animated animate__fadeInUpBig animate__slow">
+                        Romeo &amp; Juliet
+                    </div>
+                    <div class="label animate__animated animate__fadeInUpBig animate__slow">
+                        di Tempat
+                    </div>
+                </div>
+            </div>
+            <div class="button-section">
+                <a class="animate__animated animate__fadeInUpBig animate__slow" id="open2"
+                    href="javascript:void(0)"><img src="https://cdn.kadio.id/cdn/1748854881_icon.png" width="7"
+                        alt="">&nbsp;&nbsp;Buka Undangan</a>
+            </div>
+        </section>
+    </div>
+    <div class="container hide" id="content">
+        <section id="index" class="index">
+
+            <h2 class="title">Rahmat <br> & Dian</h2>
+
+            <div class="info">
+                <div class="save-the-date">
+                    Save The Date
+                </div>
+                <div class="date">Sabtu, 15 Agustus 2026</div>
+                <div class="count-down" data-countdown="2026-08-15 08:30:00">
+                    <div class="box">
+                        <div class="value day" data-days="00" id="days">20</div>
+                        <div class="label">Hari</div>
+                    </div>
+                    <div>:</div>
+                    <div class="box">
+                        <div class="value day" data-hours="00" id="hours">15</div>
+                        <div class="label">Jam</div>
+                    </div>
+                    <div>:</div>
+                    <div class="box">
+                        <div class="value day" data-minutes="00" id="minutes">10</div>
+                        <div class="label">Menit</div>
+                    </div>
+                    <div>:</div>
+                    <div class="box">
+                        <div class="value day" data-seconds="00" id="seconds">20</div>
+                        <div class="label">Detik</div>
+                    </div>
+                </div>
+            </div>
+            <img src="https://cdn.kadio.id/cdn/1751268006_kdo49-flower-3.png" alt="" class="bottom">
+        </section>
+
+        <section class="introduction" id="intro">
+            <div class="bg-top"></div>
+<h2 data-aos="fade-up" data-aos-duration="1500" style="font-size: 24px;">Assalamu'alaikum Wa Rahmatullahi Wabarakatuh</h2>
+            <div class="intro" data-aos="fade-up" data-aos-duration="1500">
+                Maha Suci Allah telah menciptakan Makhluk-Nya secara berpasang-pasangan. Dengan mengucapkan syukur, kami mengundang Anda untuk menghadiri acara pernikahan kami.
+            </div>
+            <div class="bride left" data-aos="fade-up" data-aos-duration="1500">
+                <div class="image">
+                    <img src="/image_pria.png">
+                </div>
+                <div class="profile" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="nick-name">Rahmat Wahyudi</div>
+                    <div class="label">Putra dari Bapak Markani & Ibu Markani</div><br>
+                </div>
+            </div>
+            <div
+            <h2 data-aos="fade-up" data-aos-duration="1500" style="font-size: 35px;">&</h2> </div>
+            <div class="bride right" data-aos="fade-up" data-aos-duration="1500">
+                <div class="image">
+                    <img src="/image_wanita.png">
+                </div>
+                <div class="profile" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="nick-name">Aprilika F. Adhadianty</div>
+                    <div class="label">Putri dari</div>
+                    <div class="parents">Bapak M.Fitriannoor & Ibu Mijem Aprilisha E</div><br>
+               <div class="intro" style="text-align: center; margin: 30px auto; padding: 10px; max-width: 85%;">
+    <p style="font-family: 'Baskervville', serif; color: #4B714B; font-size: 16px; line-height: 1.6; margin-bottom: 8px;">
+        "Dan di antara tanda-tanda (Kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan dia menjadikan diantaramu rasa kasih dan sayang. Sungguh, pada yang demikian itu benar-benar terdapat tanda-tanda Kebesaran Allah bagi kaum yang berfikir."
+    </p>
+    <p style="font-family: 'Poppins', sans-serif; font-size: 14px; color: #b8925a; font-weight: 600;">
+        (Q.S Ar-Rum : 21)
+    </p>
+</div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="event" id="event" style="padding-bottom:80px;">
+            <img src="https://cdn.kadio.id/cdn/1751272355_kdo49-flower-4.png" alt="" class="flower-top">
+
+            <h2 class="title" data-aos="fade-up" data-aos-duration="1500">
+                <div class="border-left-title"></div>Rangkaian Acara
+            </h2>
+            <ul class="list-event">
+                <li class="green">
+                    <div class="bg-event">
+                        <div class="event-name" data-aos="fade-up" data-aos-duration="1500">
+                            <div class="border-left-title"></div>Akad Nikah & Walimah
+                        </div>
+
+                        <div class="place-name" data-aos="fade-up" data-aos-duration="1500">MASJID BAITUL KHALIQ <br>(Korem 101/Panju Panjung)</div>
+                        <div class="address" data-aos="fade-up" data-aos-duration="1500">Jalan Damang Leman, Kel. Menteng, Kec. Jekan Raya, <br>Kota Palangkaraya</div>
+                        <div class="event-date" data-aos="fade-up" data-aos-duration="1500">Sabtu, 15 Agustus 2026<br></div>
+                        <div class="event-date" data-aos="fade-up" data-aos-duration="1500">08:30 - Selesai WIB</div>
+
+                        <div class="button" style="display: flex; justify-content: center;">
+                            <a target="_blank" href="https://maps.app.goo.gl/JRdUcSDwwLLA5fFw9?g_st=atm" style="display: flex; align-items: center; gap: 5px;">
+                                <ion-icon name="map-outline" style="font-size: 20px;"></ion-icon> MAP
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+
+              <section class="story" id="gift" style="padding-top: 20px; padding-bottom: 0; background-position: center top;">
+            <!-- Ornamen Bunga Atas -->
+            <img src="https://cdn.kadio.id/cdn/1751268006_kdo49-flower-3.png" alt="" class="top-flower" style="margin-top: -20px; position: center; z-index: 5;">
+            
+            <h2 class="title" data-aos="fade-up" data-aos-duration="1500" style="margin-bottom: 20px; position: relative; z-index: 2;"><br>Kado Digital</h2>
+                <p style="font-family: 'Baskervville', serif; color: #4B714B; font-size: 16px; line-height: 1.6; margin-bottom: 8px;">
+                Bagi keluarga dan kerabat yang ingin memberikan kado digital, dapat mengirimkannya melalui
+    </p>
+            
+            <!-- Kotak No Rek dengan Ikon ATM & Tombol Salin -->
+<div data-aos="fade-up" data-aos-duration="1500" style="background: #ffffff; padding: 25px; border-radius: 10px; max-width: 400px; margin: 0 auto; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #eaeaea; position: relative; z-index: 2;">
+    <p style="margin-bottom: 8px; color: #555; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <ion-icon name="card-outline" style="font-size: 22px;"></ion-icon> Bank BNI
+    </p>
+    <p style="margin-bottom: 8px; font-weight: bold; color: #4B714B;">Aprilika Fitria Adhadianty</p>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <p id="no-rek" style="font-size: 22px; font-weight: bold; color: #b8925a; margin-bottom: 0;">1944442202</p>
+        <a href="javascript:void(0)" onclick="copyText()" style="background: #b8925a; color: white; padding: 5px 10px; border-radius: 5px; font-size: 12px; text-decoration: none;">Salin</a>
+    </div>
+</div>
+
+            <!-- Ornamen Bunga Bawah -->
+            <div style="position: relative; width: 95%; height: 100px;">
+                <div style="position: absolute; left: 0; right: 0; display: flex; justify-content: center; margin-top: 20px;">
+                    <img src="https://cdn.kadio.id/cdn/1751268006_kdo49-flower-3.png" alt="" style="width: 85%;" data-aos="zoom-in-up" data-aos-duration="1500">
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <section class="rsvp pt-90" id="rsvp">
+            <h2 class="title" data-aos="fade-up" data-aos-duration="1500">Doa & Ucapan</h2>
+            <div class="bg-form">
+                <div class="form">
+                    <form id="form_message" action="" data-aos="fade-up" data-aos-duration="1500">
+                        <input type="hidden" id="invitation_code" name="invitation_code" value="zmwcc4ql">
+                        <input type="hidden" id="guest_id" name="guest_id" value="">
+                        <input type="hidden" value="5541" name="order_detail_invitation_id">
+                        <div class="form-group bgs">
+                            <label for="">Nama</label>
+                            <input id="guest_name" type="text" name="guest_name" value="Romeo &amp; Juliet">
+                            <p class="font-primary"></p>
+                        </div>
+                        <div class="form-group bgs">
+                            <label for="">Pesan untuk mempelai : </label>
+                            <textarea id="message" type="text" name="message" placeholder="Isi pesan anda"></textarea>
+                        </div>
+                                                <div class="form-group bgs" style="text-align: left;">
+                            <label for="attendant">Konfirmasi Kehadiran :</label>
+                            <select name="attendant" id="attendant" style="width: 100%; padding: 12px; margin-top: 5px; border-radius: 5px; border: 1px solid #ccc; background: white; font-family: inherit;">
+                                <option value="attend">Ya, Saya akan hadir</option>
+                                <option value="not_attend">Maaf, saya belum bisa hadir</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="display: flex; justify-content: center; margin-top: -10px;">
+    <button type="button" id="btn_message" style="display: flex; align-items: center; gap: 8px;">
+        <img src="https://kadio.id/images/kdo49/rsvp.svg" alt="" style="width: 20px;"> 
+        Kirim Pesan
+    </button>
+</div><br>
+                        </div>
+                    </form>
+                </div>
+        </section>
+
+<section data-aos="fade-up" data-aos-duration="1000" style="padding: 30px 20px; background-color: #ffffff; text-align: center;">
+    
+<!-- Ornamen Bunga Atas -->
+<div style="text-align: center; margin-top: -80px; margin-bottom: 20px;">
+    <img src="https://cdn.kadio.id/cdn/1751268006_kdo49-flower-3.png" style="width: 300px; opacity: 0.8;">
+</div>
+
+
+    <!-- Judul Adab Walimah -->
+    <h2 style="color: #D2993E; margin-bottom: 45px; font-family: sans-serif;">Adab-Adab Walimah</h2>
+    
+    <!-- Wadah grid Adab Walimah -->
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+        <!-- Poin 1 -->
+        <div style="padding: 15px; border: 2px solid #D2993E; border-radius: 12px; background-color: #ffffff;">
+            <p style="font-size: 24px;">🚻</p>
+            <p style="font-size: 12px; font-weight: 600; color: #4B714B;">Infishol, Tamu Pria Dan Wanita Akan Dipisah</p>
+        </div>
+        <!-- Poin 2 -->
+        <div style="padding: 15px; border: 2px solid #D2993E; border-radius: 12px; background-color: #ffffff;">
+            <p style="font-size: 24px;">🤲</p>
+            <p style="font-size: 12px; font-weight: 600; color: #4B714B;">Mendoakan Keberkahan Untuk Pengantin & Keluarga</p>
+        </div>
+        <!-- Poin 3 -->
+        <div style="padding: 15px; border: 2px solid #D2993E; border-radius: 12px; background-color: #ffffff;">
+            <p style="font-size: 24px;">🚫🤝</p>
+            <p style="font-size: 12px; font-weight: 600; color: #4B714B;">Tidak Berjabat Tangan Dengan Non-Mahrom</p>
+        </div>
+        <!-- Poin 4 -->
+        <div style="padding: 15px; border: 2px solid #D2993E; border-radius: 12px; background-color: #ffffff;">
+            <p style="font-size: 24px;">🧥</p>
+            <p style="font-size: 12px; font-weight: 600; color: #4B714B;">Berpakaian Dengan Rapih & Sopan</p>
+        </div>
+        <!-- Poin 5 -->
+        <div style="padding: 15px; border: 2px solid #D2993E; border-radius: 12px; background-color: #ffffff; grid-column: span 2;">
+            <p style="font-size: 24px;">🍴</p>
+            <p style="font-size: 12px; font-weight: 600; color: #4B714B;">Memperhatikan Adab Makan & Minum</p>
+        </div>
+    </div>
+
+<!-- Ornamen Bunga Bawah (diperbaiki agar tidak menutupi teks) -->
+<div style="text-align: center; margin-top: 40px; margin-bottom: 5px;">
+    <img src="https://cdn.kadio.id/cdn/1751268006_kdo49-flower-3.png" style="width: 300px; opacity: 0.8;">
+</div>
+
+</section>
+
+<section class="thank-you">
+    <div class="form-group thank-you" style="margin-top: 0;">
+        <p data-aos="fade-up" data-aos-duration="1500">Atas doa & ucapan bapak/ibu/saudara/i, Kami mengucapkan terima kasih.</p>
+        
+        <h2 data-aos="fade-up" data-aos-duration="1500" style="font-size: 24px; margin-top: 15px;">Wassalamu'alaikum Wa Rahmatullahi Wabarakatuh</h2>
+        
+        <br>
+        <p data-aos="fade-up" data-aos-duration="1500">Salam Cinta,</p>
+        <h2 data-aos="fade-up" data-aos-duration="1500">Rahmat <br> & Dian</h2>
+    </div>
+</section>
+
+
+
+
+        <section class="message">
+            <img src="https://cdn.kadio.id/cdn/1751268006_kdo49-flower-3.png" alt="" class="top-flower">
+            <div class="title-message" data-aos="fade-up" data-aos-duration="1500">
+                <h2 data-aos="fade-up" data-aos-duration="1500">Doa & Ucapan</h2>
+                <h3 data-aos="fade-up" data-aos-duration="1500">Dari Undangan</h3><br><br>
+            </div>
+
+            <ul class="list-message" id="message_list">
+            </ul>
+        </section>
+
+
+        <div id="menu" class="menu hide" style="background: #ffffff; box-shadow: 0px 5px 15px rgba(210, 153, 62, 0.2);">
+    <ul>
+        <li>
+            <a href="#intro" style="color: #D2993E; font-family: 'Baskervville', serif;">
+                <img src="https://kadio.id/images/kdo44/mempelai.svg" class="icon" style="filter: hue-rotate(90deg) brightness(0.8);">The Bride & Groom
+            </a>
+        </li>
+        <li>
+            <a href="#event" style="color: #D2993E; font-family: 'Baskervville', serif;">
+                <img src="https://kadio.id/images/kdo44/event.svg" class="icon" style="filter: hue-rotate(90deg) brightness(0.8);">Wedding Ceremony
+            </a>
+        </li>
+        <li>
+            <a href="#gift" style="color: #D2993E; font-family: 'Baskervville', serif;">
+                <img src="https://kadio.id/images/kdo44/love-story.svg" class="icon" style="filter: hue-rotate(90deg) brightness(0.8);">Wedding Gift
+            </a>
+        </li>
+        <li>
+            <a href="#rsvp" style="color: #D2993E; font-family: 'Baskervville', serif;">
+                <img src="https://kadio.id/images/kdo44/message.svg" class="icon" style="filter: hue-rotate(90deg) brightness(0.8);">Well Wishes
+            </a>
+        </li>
+    </ul>
+</div>
+
+    </div>
+    <div class="modal" id="confirm_gift_modal">
+        <div class="modal-content" style="">
+            <div class="header">
+                <div class="close-modal">x</div>
+            </div>
+            <div class="body" style="border-radius: 7px;overflow: hidden;overflow-y: auto;border-top: 10px solid #fff;">
+                <section class="modal-send-gift">
+                    <div id="confirmation_form_gift">
+                        <div class="row pt-3 pl-5 pr-5 pb-2" id="digital_form">
+                            <input value="digital" name="gift_type" style="width: 20px" type="hidden" id="gift_type">
+                            <div class="col-12">
+                                <div class="form-group mb-3">
+                                    <label class="mb-1">Nama Pengirim</label>
+                                    <input type="text" name="sender_name" id="sender_name" value="Romeo &amp; Juliet">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="mb-1">Dikirim ke Rekening</label>
+                                    <select name="gift_id" id="gift_id">
+                                        <option value="4477">Bank BCA-2120298734</option>
+                                    </select>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="mb-1">Jumlah Transfer</label>
+                                    <input type="number" name="total" id="total">
+                                </div>
+                                <div class="form-group mt-5 text-center">
+                                    <a id="btn_submit_confirm" href="javascript:void(0)" class="btn-primary">
+                                        Kirim
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="https://kadio.id/js/lightbox-plus-jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://kadio.id/js/common.js?v=4"></script>
+    <script src="https://kadio.id/js/invitation.js?v=6"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.querySelector('.love-story');
+            const dots = document.querySelectorAll('.dot');
+            const slides = document.querySelectorAll('.love-story li');
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    // Scroll ke posisi slide ke-index
+                    slider.scrollTo({
+                        left: index * slider.clientWidth,
+                        behavior: 'smooth'
+                    });
+
+                    // Update active class pada dot
+                    dots.forEach(d => d.classList.remove('active'));
+                    dot.classList.add('active');
+                });
+            });
+
+            // Update dot aktif saat user scroll (optional swipe support)
+            slider.addEventListener('scroll', () => {
+                const scrollLeft = slider.scrollLeft;
+                const width = slider.clientWidth;
+                const index = Math.round(scrollLeft / width);
+
+                dots.forEach(dot => dot.classList.remove('active'));
+                if (dots[index]) dots[index].classList.add('active');
+            });
+        });
+    </script>
+    <script>
+        // Get the button
+        let mybutton = document.getElementById("menu");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                mybutton.classList.remove('hide');
+            } else {
+                mybutton.classList.add('hide');
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://kadio.id/js/qrcode.js"></script>
+    <script>
+        (function () {
+            const list = document.querySelector('.gallery .image-list');
+            if (!list) return;
+
+            const n = Math.min(list.querySelectorAll('.image').length, 12);
+            list.classList.add(`n${n}`, n % 2 ? 'odd' : 'even');
+
+            if (n >= 6 && n % 2 === 0) {
+                list.classList.add('even6plus');
+            }
+            if (n >= 5 && n % 2 === 1) {
+                list.classList.add('odd5plus');
+            }
+        })();
+    </script>
+    
+        <!-- ... kode lainnya ... -->
+    
+    <script>
+    function copyText() {
+        const text = document.getElementById("no-rek");
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(text);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand('copy');
+        alert("Nomor rekening berhasil disalin!");
+    }
+</script>
+
+<script>
+    // Memaksa audio agar tidak pernah terputar
+    window.addEventListener('load', function() {
+        const audio = document.getElementById('song');
+        if (audio) {
+            audio.pause();
+            audio.src = ""; // Mengosongkan sumber lagu
+            audio.load();
+        }
+    });
+</script>
+<audio id="myAudio" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="btn-music" onclick="togglePlay()" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; border-radius: 50%; width: 50px; height: 50px; border: none; background: #D2993E; color: white; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+    ♪
+</button>
+
+<script>
+    var audio = document.getElementById("myAudio");
+    var btn = document.getElementById("btn-music");
+
+    function togglePlay() {
+        if (audio.paused) {
+            audio.play();
+            btn.innerText = "||"; // Ikon pause
+        } else {
+            audio.pause();
+            btn.innerText = "♪"; // Ikon play
+        }
+    }
+</script>
+
+</body>
+
+</html>
