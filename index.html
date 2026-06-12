@@ -959,16 +959,16 @@
     <script>
 function kirimPesan(event) {
     event.preventDefault();
+    
+    // Gunakan FormData agar lebih aman dari gangguan sistem Kadio
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxieERYUSjkCFgk2Ah79xX91kZhaf6R_-rKMpQdcfB9xYMyRKFq7FWI_jJs4SbGmfyw/exec';
     const form = document.getElementById('my-form');
     const tombol = document.getElementById('btn_message');
 
-    // Ambil data
-    const data = {
-        nama: document.getElementById('guest_name_input').value,
-        pesan: document.getElementById('guest_message_input').value,
-        kehadiran: document.getElementById('attendant').value
-    };
+    // Ambil data dengan cara manual agar tidak tertukar
+    const nama = document.querySelector('input[name="guest_name"]').value;
+    const pesan = document.querySelector('textarea[name="message"]').value;
+    const kehadiran = document.getElementById('attendant').value;
 
     tombol.innerText = "Mengirim...";
     tombol.disabled = true;
@@ -977,7 +977,7 @@ function kirimPesan(event) {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify({ nama: nama, pesan: pesan, kehadiran: kehadiran })
     })
     .then(() => {
         alert('Terima kasih! Pesan sudah terkirim.');
