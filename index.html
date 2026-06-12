@@ -656,7 +656,7 @@
             <h2 class="title" data-aos="fade-up" data-aos-duration="1500">Doa & Ucapan</h2>
             <div class="bg-form">
                 <div class="form">
-                    <form id="my-form" onsubmit="kirimPesan(event)" data-aos="fade-up" data-aos-duration="1500">
+                    <form id="my-form" data-aos="fade-up" data-aos-duration="1500">
                         <input type="hidden" id="invitation_code" name="invitation_code" value="zmwcc4ql">
                         <input type="hidden" id="guest_id" name="guest_id" value="">
                         <input type="hidden" value="5541" name="order_detail_invitation_id">
@@ -677,8 +677,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group" style="display: flex; justify-content: center; margin-top: -10px;">
-    <button type="submit" id="btn_message" style="display: flex; align-items: center; gap: 8px;">
+                        <button type="button" id="btn_message" style="display: flex; align-items: center; gap: 8px;">
     <img src="https://kadio.id/images/kdo49/rsvp.svg" alt="" style="width: 20px;"> 
     Kirim Pesan
 </button>
@@ -957,40 +956,46 @@
 </script>
 
     <script>
-function kirimPesan(event) {
-    event.preventDefault();
-    
-    // Gunakan FormData agar lebih aman dari gangguan sistem Kadio
+document.addEventListener("DOMContentLoaded", function() {
+    const btn = document.getElementById('btn_message');
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxieERYUSjkCFgk2Ah79xX91kZhaf6R_-rKMpQdcfB9xYMyRKFq7FWI_jJs4SbGmfyw/exec';
-    const form = document.getElementById('my-form');
-    const tombol = document.getElementById('btn_message');
 
-    // Ambil data dengan cara manual agar tidak tertukar
-    const nama = document.querySelector('input[name="guest_name"]').value;
-    const pesan = document.querySelector('textarea[name="message"]').value;
-    const kehadiran = document.getElementById('attendant').value;
+    if (btn) {
+        btn.addEventListener('click', function() {
+            const nama = document.getElementById('guest_name_input').value;
+            const pesan = document.getElementById('guest_message_input').value;
+            const kehadiran = document.getElementById('attendant').value;
 
-    tombol.innerText = "Mengirim...";
-    tombol.disabled = true;
+            if (nama === "" || pesan === "") {
+                alert("Tolong isi Nama dan Pesan dulu ya!");
+                return;
+            }
 
-    fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nama: nama, pesan: pesan, kehadiran: kehadiran })
-    })
-    .then(() => {
-        alert('Terima kasih! Pesan sudah terkirim.');
-        tombol.innerText = "Kirim Pesan";
-        tombol.disabled = false;
-        form.reset();
-    })
-    .catch(error => {
-        alert('Error, coba lagi!');
-        tombol.innerText = "Kirim Pesan";
-        tombol.disabled = false;
-    });
-}
+            btn.disabled = true;
+            btn.innerText = "Mengirim...";
+
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nama: nama, pesan: pesan, kehadiran: kehadiran })
+            })
+            .then(() => {
+                alert('Pesan berhasil terkirim!');
+                btn.disabled = false;
+                btn.innerText = "Kirim Pesan";
+                // Reset form manual
+                document.getElementById('guest_name_input').value = "";
+                document.getElementById('guest_message_input').value = "";
+            })
+            .catch(() => {
+                alert('Gagal, coba lagi nanti!');
+                btn.disabled = false;
+                btn.innerText = "Kirim Pesan";
+            });
+        });
+    }
+});
 </script>
 </body>
 
