@@ -956,46 +956,41 @@
 </script>
 
     <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const btn = document.getElementById('btn_message');
+function kirimPesan(event) {
+    event.preventDefault();
+    
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxieERYUSjkCFgk2Ah79xX91kZhaf6R_-rKMpQdcfB9xYMyRKFq7FWI_jJs4SbGmfyw/exec';
+    const form = document.getElementById('my-form');
+    const tombol = document.getElementById('btn_message');
 
-    if (btn) {
-        btn.addEventListener('click', function() {
-            const nama = document.getElementById('guest_name_input').value;
-            const pesan = document.getElementById('guest_message_input').value;
-            const kehadiran = document.getElementById('attendant').value;
+    // Pastikan data diambil dengan benar
+    const nama = document.querySelector('input[name="guest_name"]').value;
+    const pesan = document.querySelector('textarea[name="message"]').value;
+    const kehadiran = document.getElementById('attendant').value;
 
-            if (nama === "" || pesan === "") {
-                alert("Tolong isi Nama dan Pesan dulu ya!");
-                return;
-            }
+    // Ubah status tombol
+    tombol.disabled = true;
+    tombol.innerText = "Mengirim...";
 
-            btn.disabled = true;
-            btn.innerText = "Mengirim...";
-
-            fetch(scriptURL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ nama: nama, pesan: pesan, kehadiran: kehadiran })
-            })
-            .then(() => {
-                alert('Pesan berhasil terkirim!');
-                btn.disabled = false;
-                btn.innerText = "Kirim Pesan";
-                // Reset form manual
-                document.getElementById('guest_name_input').value = "";
-                document.getElementById('guest_message_input').value = "";
-            })
-            .catch(() => {
-                alert('Gagal, coba lagi nanti!');
-                btn.disabled = false;
-                btn.innerText = "Kirim Pesan";
-            });
-        });
-    }
-});
+    fetch(scriptURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nama: nama, pesan: pesan, kehadiran: kehadiran })
+    })
+    .then(() => {
+        alert('Terima kasih! Pesan sudah terkirim.');
+        // Kembalikan tombol ke kondisi semula
+        tombol.disabled = false;
+        tombol.innerText = "Kirim Pesan";
+        form.reset();
+    })
+    .catch(error => {
+        alert('Gagal! Coba cek koneksi internetmu.');
+        tombol.disabled = false;
+        tombol.innerText = "Kirim Pesan";
+    });
+}
 </script>
 </body>
 
