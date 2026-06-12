@@ -656,7 +656,7 @@
             <h2 class="title" data-aos="fade-up" data-aos-duration="1500">Doa & Ucapan</h2>
             <div class="bg-form">
                 <div class="form">
-                    <form id="form_message" action="" data-aos="fade-up" data-aos-duration="1500">
+                    <form id="my-form" action="" data-aos="fade-up" data-aos-duration="1500">
                         <input type="hidden" id="invitation_code" name="invitation_code" value="zmwcc4ql">
                         <input type="hidden" id="guest_id" name="guest_id" value="">
                         <input type="hidden" value="5541" name="order_detail_invitation_id">
@@ -667,7 +667,7 @@
                         </div>
                         <div class="form-group bgs">
                             <label for="">Pesan untuk mempelai : </label>
-                            <textarea id="message" type="text" name="message" placeholder="Isi pesan anda"></textarea>
+                            <textarea id="guest_message_input" type="text" name="message" placeholder="Isi pesan anda"></textarea>
                         </div>
                                                 <div class="form-group bgs" style="text-align: left;">
                             <label for="attendant">Konfirmasi Kehadiran :</label>
@@ -678,10 +678,10 @@
                         </div>
 
                         <div class="form-group" style="display: flex; justify-content: center; margin-top: -10px;">
-    <button type="button" id="btn_message" style="display: flex; align-items: center; gap: 8px;">
-        <img src="https://kadio.id/images/kdo49/rsvp.svg" alt="" style="width: 20px;"> 
-        Kirim Pesan
-    </button>
+    <button type="submit" id="btn_message" style="display: flex; align-items: center; gap: 8px;">
+    <img src="https://kadio.id/images/kdo49/rsvp.svg" alt="" style="width: 20px;"> 
+    Kirim Pesan
+</button>
 </div><br>
                         </div>
                     </form>
@@ -954,6 +954,35 @@
     if (namaTamu) {
         document.getElementById('nama-tamu').innerText = namaTamu;
     }
+</script>
+
+    <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxieERYUSjkCFgk2Ah79xX91kZhaf6R_-rKMpQdcfB9xYMyRKFq7FWI_jJs4SbGmfyw/exec'; // <-- Ganti dengan URL Google Apps Script Adek
+    const form = document.getElementById('my-form'); // Pastikan <form>-nya punya id="my-form"
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        
+        // Mengambil data dari form
+        const data = {
+            nama: document.getElementById('guest_name_input').value,
+            pesan: document.getElementById('guest_message_input').value,
+            kehadiran: document.getElementById('attendant').value
+        };
+
+        // Mengirim ke Google Sheets
+        fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(() => {
+            alert('Terima kasih! Pesan dan konfirmasi kehadiran sudah terkirim.');
+            form.reset();
+        })
+        .catch(error => alert('Waduh, ada kesalahan. Coba lagi ya!'));
+    });
 </script>
 </body>
 
