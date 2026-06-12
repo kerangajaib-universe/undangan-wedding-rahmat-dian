@@ -503,9 +503,9 @@
                     <div class="label animate__animated animate__fadeInUpBig animate__slow">
                         Kepada Yth. Bapak/Ibu/Sdr/i
                     </div>
-                    <div class="name animate__animated animate__fadeInUpBig animate__slow">
-                        Romeo &amp; Juliet
-                    </div>
+                    <div class="name animate__animated animate__fadeInUpBig animate__slow" id="nama-tamu">
+    Sahabat Kami
+</div>
                     <div class="label animate__animated animate__fadeInUpBig animate__slow">
                         di Tempat
                     </div>
@@ -948,7 +948,13 @@
         }
     }
 </script>
-
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const namaTamu = urlParams.get('to');
+    if (namaTamu) {
+        document.getElementById('nama-tamu').innerText = namaTamu;
+    }
+</script>
 </body>
 
 </html>
