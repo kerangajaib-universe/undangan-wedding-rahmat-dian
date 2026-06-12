@@ -960,35 +960,37 @@
     <script>
 function kirimPesan(event) {
     event.preventDefault();
+    
+    // Pastikan link ini sudah yang paling baru dari Google Script adek ya
     const scriptURL = 'https://script.google.com/macros/s/AKfycbxieERYUSjkCFgk2Ah79xX91kZhaf6R_-rKMpQdcfB9xYMyRKFq7FWI_jJs4SbGmfyw/exec';
+    
     const form = document.getElementById('my-form');
     const tombol = document.getElementById('btn_message');
 
-    // Ambil data
-    const data = {
-        nama: document.getElementById('guest_name_input').value,
-        pesan: document.getElementById('guest_message_input').value,
-        kehadiran: document.getElementById('attendant').value
-    };
-
+    // Ubah status tombol saat diklik
     tombol.innerText = "Mengirim...";
     tombol.disabled = true;
 
+    // Kunci penyelesaiannya ada di sini: menggunakan FormData, bukan JSON
+    const data = new FormData();
+    data.append('nama', document.getElementById('guest_name_input').value);
+    data.append('pesan', document.getElementById('guest_message_input').value);
+    data.append('kehadiran', document.getElementById('attendant').value);
+
     fetch(scriptURL, {
         method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: data // Langsung kirim FormData
     })
-    .then(() => {
+    .then(response => {
         alert('Terima kasih! Pesan sudah terkirim.');
-        tombol.innerText = "Kirim Pesan";
+        // Kembalikan tombol seperti semula beserta ikonnya
+        tombol.innerHTML = '<img src="https://kadio.id/images/kdo49/rsvp.svg" alt="" style="width: 20px;"> Kirim Pesan';
         tombol.disabled = false;
         form.reset();
     })
     .catch(error => {
-        alert('Error, coba lagi!');
-        tombol.innerText = "Kirim Pesan";
+        alert('Gagal mengirim pesan, coba lagi ya.');
+        tombol.innerHTML = '<img src="https://kadio.id/images/kdo49/rsvp.svg" alt="" style="width: 20px;"> Kirim Pesan';
         tombol.disabled = false;
     });
 }
